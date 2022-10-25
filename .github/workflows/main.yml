@@ -85,6 +85,8 @@ jobs:
                   elfutils \
                   dbus-x11 \
                   cdbs \
+                  libva-dev \
+                  lib32gcc-s1 \
                   apache2-bin
           sudo apt-get install -y linux-libc-dev:i386 libx11-xcb1:i386 libpci3:i386
 
