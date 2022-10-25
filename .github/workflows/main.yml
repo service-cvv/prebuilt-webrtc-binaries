@@ -4,8 +4,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -95,7 +93,7 @@ jobs:
 
       - name: Package
         run: ./scripts/package.sh
-          
+
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v2.2.4
         with:
@@ -117,7 +115,7 @@ jobs:
 
       - name: Package
         run: ./scripts/package.sh
-          
+
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v2.2.4
         with:
