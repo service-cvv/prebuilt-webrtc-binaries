@@ -16,6 +16,9 @@ jobs:
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.6'
 
       - name: Install dependencies
         run: |
@@ -100,26 +103,3 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           path: webrtc_*.zip
-
-  build_macos:
-    name: macOS
-    runs-on: macos-10.14
-
-    env:
-        DEVELOPER_DIR: /Applications/Xcode_11.3.app/Contents/Developer
-
-    steps:
-      # Checks-out the repository under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v2
-
-      - name: Build
-        run: ./scripts/build_iosx.sh
-
-      - name: Package
-        run: ./scripts/package.sh
-
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v2.2.4
-        with:
-          path: webrtc_*.zip
-

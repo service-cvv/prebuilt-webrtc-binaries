@@ -35,9 +35,9 @@ yes | gclient sync
 
 sed s/sudo/echo\ sudo/g build/install-build-deps-android.sh > build/install-build-deps-android-nosudo.sh
 . build/install-build-deps-android-nosudo.sh --quick-check
-. build/android/envsetup.sh 
+. build/android/envsetup.sh
 
-for PATCH in ../../patch/*.patch; do 
+for PATCH in ../../patch/*.patch; do
   patch -p1 < $PATCH
 done
 
@@ -45,11 +45,11 @@ export ARGS="is_debug=false rtc_include_tests=false rtc_build_examples=false rtc
 gn gen out/linux-x86_64 -args="target_os=\"linux\" target_cpu=\"x64\" $ARGS"
 ninja -C out/linux-x86_64
 
-gn gen out/android-i386 -args="target_os=\"android\" target_cpu=\"x86\" $ARGS"
-ninja -C out/android-i386
+# gn gen out/android-i386 -args="target_os=\"android\" target_cpu=\"x86\" $ARGS"
+# ninja -C out/android-i386
 
-gn gen out/android-x86_64 -args="target_os=\"android\" target_cpu=\"x64\" $ARGS"
-ninja -C out/android-x86_64
+# gn gen out/android-x86_64 -args="target_os=\"android\" target_cpu=\"x64\" $ARGS"
+# ninja -C out/android-x86_64
 
 gn gen out/android-armv7 -args="target_os=\"android\" target_cpu=\"arm\" $ARGS"
 ninja -C out/android-armv7
